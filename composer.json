@@ -1,0 +1,6 @@
+{
+    "require": {
+        "composer/composer": "^1.10",
+        "symfony/var-dumper": "^5.1"
+    }
+}
