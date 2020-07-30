@@ -1,10 +1,9 @@
 <?php
 
-namespace App\src\Controller;
+namespace App\Controller;
 
-use App\src\Service\Model;
-use App\src\Service\View;
-
+use Framework\Model;
+use Framework\View;
 
 class Controller
 {
@@ -14,8 +13,10 @@ class Controller
 
     public function __construct()
     {
-        $this->view = new View();
-        $this->model = new Model();
+        // je souhaite utiliser le "composant" Model (ses fonctionnalité)
+        // pour fonctionner le Model a besoin de savoir où chercher les data
+        $this->model = new Model(__DIR__ . "/../../data/data.php");
+        $this->view = new View(__DIR__ . "/../../template/template.tpl.php");
     }
 
 

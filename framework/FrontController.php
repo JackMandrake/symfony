@@ -1,7 +1,8 @@
 <?php
 
-namespace App\src;
-use App\src\Controller\Controller;
+namespace Framework;
+
+use App\Controller\Controller;
 
 class FrontController 
 {

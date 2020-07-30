@@ -45,6 +45,10 @@ class ComposerStaticInite3057256896a311ea0cd8750ada4da99
         array (
             'JsonSchema\\' => 11,
         ),
+        'F' => 
+        array (
+            'Framework\\' => 10,
+        ),
         'C' => 
         array (
             'Composer\\XdebugHandler\\' => 23,
@@ -52,6 +56,10 @@ class ComposerStaticInite3057256896a311ea0cd8750ada4da99
             'Composer\\Semver\\' => 16,
             'Composer\\CaBundle\\' => 18,
             'Composer\\' => 9,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -128,6 +136,10 @@ class ComposerStaticInite3057256896a311ea0cd8750ada4da99
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
         ),
+        'Framework\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/framework',
+        ),
         'Composer\\XdebugHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/xdebug-handler/src',
@@ -147,6 +159,10 @@ class ComposerStaticInite3057256896a311ea0cd8750ada4da99
         'Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/composer/src/Composer',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
