@@ -6,3 +6,5 @@
     <?php echo $data['content']; ?>
     </body>
 </html>
+// hello.php
+Hello, <?= $view->escape($firstname) ?>!
