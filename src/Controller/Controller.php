@@ -7,6 +7,7 @@ use Framework\View;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
+
 /**
  * The application main controller
  * 
@@ -36,7 +37,10 @@ class Controller
         // pour fonctionner le Model a besoin de savoir où chercher les data
 
         $this->model = new Model(__DIR__ . "/../../data/data.php");
-        $this->view = new View(__DIR__ . "/../../template/template.tpl.php");
+
+        // ici je souhaite utilise ma vue pour creer du contenu HTML
+        // la classe View a besoin de savoir où qse trouve (dans quel dossier) mes templates
+        $this->view = new View(__DIR__ . "/../../template/");
     }
 
     public function getView(): View

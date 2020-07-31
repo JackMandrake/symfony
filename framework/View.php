@@ -1,18 +1,11 @@
 <?php
 
 namespace Framework;
+
 use Symfony\Component\Templating\Loader\FilesystemLoader;
 use Symfony\Component\Templating\PhpEngine;
 use Symfony\Component\Templating\Helper\SlotsHelper;
 use Symfony\Component\Templating\TemplateNameParser;
-
-$filesystemLoader = new FilesystemLoader(__DIR__.'/template.tpl.php');
-
-$templating = new PhpEngine(new TemplateNameParser(), $filesystemLoader);
-$templating->set(new SlotsHelper());
-
-echo $templating->render('hello.php', ['firstname' => 'Fabien']);
-
 
 
 // Cette objet permet de "mettre en forme" des données qu'on lui fournis et renvoyer le resultat
@@ -20,16 +13,24 @@ class View
 {
 
     /**
-     * @var string the path to the template
+     * @var PhpEngine the php template engine
      */
-    private $path;
+    private $templating;
 
     // lorsque mon application va vouloir utiliser ce composant
     // elle va devoir préciser quel fichier contient les données à utiliser
     // Grâce a ce mechanisme on peut réutiliser la classe Model quelle que soit la struture de mon projet
     public function __construct($path)
-    {
-        $this->path = $path;
+    {        
+        // $path = "/www/spe/e01/monrepo/template/"
+        // FilesystemLoader = "/www/spe/e01/monrepo/template/%name%"
+
+        // SI on lui demande d'utiliser la template qui s'appel 'homepage.tpl.php'
+        // ALORS le moteur de template va chercher la template qui se situe a 
+        // /www/spe/e01/monrepo/template/homepage.tpl.php
+        $filesystemLoader = new FilesystemLoader($path . '%name%');
+        $this->templating = new PhpEngine(new TemplateNameParser(), $filesystemLoader);
+        $this->templating->set(new SlotsHelper());
     }
 
 
@@ -44,17 +45,18 @@ class View
      */
     public function displayHtml(array $data): string
     {
+
+        // ce morceau de code là n'est plus utile , on prefere utiliser le moteur de template de symfony
+        /*
         ob_start();
         include $this->path;
         $html = ob_get_clean();
+        */
+
+        $html = $this->templating->render('template.tpl.php', $data);
 
         return $html;
     }
 
-    public function displayJson($data)
-    {
-        header('Content-Type: application/json');
 
-        return json_encode($data);
-    }
 }

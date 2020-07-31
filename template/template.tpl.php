@@ -1,10 +1,8 @@
 <html>
 <head>
-    <title><?php echo $data['title']; ?></title>
+    <title><?= $title ?></title>
 </head>
     <body>
-    <?php echo $data['content']; ?>
+    <?= $content ?>
     </body>
 </html>
-// hello.php
-Hello, <?= $view->escape($firstname) ?>!
